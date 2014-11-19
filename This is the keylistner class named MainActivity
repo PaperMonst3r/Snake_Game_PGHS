@@ -1,0 +1,47 @@
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
+
+public class MainActivity implements KeyListener{
+	int START_X = 250;
+	int START_Y = 250;
+	int CHANGE_X = 10;
+	int CHANGE_Y = 10;
+	
+	
+	public static void main(String[] args) {
+
+		
+		
+		
+	}
+
+	@Override
+	public void keyPressed(KeyEvent button) {
+		// TODO Auto-generated method stub
+		int key = button.getKeyCode();
+		if(key == KeyEvent.VK_UP){
+			START_Y += CHANGE_Y;
+		}
+		if(key ==  KeyEvent.VK_DOWN){
+			START_Y -= CHANGE_Y;
+		}
+		if(key ==  KeyEvent.VK_LEFT){
+			START_X -= CHANGE_X;
+		}
+		if(key ==  KeyEvent.VK_RIGHT){
+			START_X += CHANGE_X;
+		}
+	}
+
+	@Override
+	public void keyReleased(KeyEvent up) {
+		// 
+	}
+
+	@Override
+	public void keyTyped(KeyEvent up) {
+		// 
+		
+	}		
+}
