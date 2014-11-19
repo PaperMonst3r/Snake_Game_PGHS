@@ -1,0 +1,67 @@
+import java.awt.Component;
+import java.awt.Container;
+import java.awt.Dimension;
+import java.awt.Font;
+
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+
+public class Main {
+	
+	private final static int WINDOW_HEIGHT = 500;
+	private final static int WINDOW_WIDTH = 500;
+	private final static int DOT_SIZE = 10;
+	
+	public static void addComponentsToPane(Container pane) {
+        pane.setLayout(new BoxLayout(pane, BoxLayout.Y_AXIS));
+        pane.add(Box.createRigidArea(new Dimension(0,20)));
+        addALabel("SNAKE GAME",pane);
+        pane.add(Box.createRigidArea(new Dimension(0,50)));
+        addAButton("START", pane);
+		pane.add(Box.createRigidArea(new Dimension(0,50)));
+        addAButton("QUIT", pane);
+        
+    }
+	
+	
+	 private static void addAButton(String text, Container container) {
+	        JButton button = new JButton(text);
+	        Font font = new Font("SansSerif", Font.PLAIN,25);
+	        button.setFont(font);
+	        button.setAlignmentX(Component.CENTER_ALIGNMENT);
+	        container.add(button);
+	       
+	       
+	    }
+	 private static void addALabel(String text, Container container) {
+	        JLabel label = new JLabel(text);
+	        Font font = new Font("Comic Sans MS", Font.PLAIN,25);
+	        label.setFont(font);
+	        label.setAlignmentX(Component.CENTER_ALIGNMENT);
+	        container.add(label);
+	       
+	       
+	    }
+	
+	private static void createGUI(){
+		JFrame frame = new JFrame("Snake Game");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		 addComponentsToPane(frame.getContentPane());
+		 frame.setPreferredSize(new Dimension(WINDOW_HEIGHT,WINDOW_WIDTH));
+		 frame.pack();
+		 frame.setVisible(true);
+	}
+	
+	
+	public static void main(String args[]){
+		javax.swing.SwingUtilities.invokeLater(new Runnable(){
+			public void run(){
+				createGUI();
+			}
+		});
+	}
+}
